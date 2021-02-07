@@ -16,9 +16,9 @@ def equivalent_resistors(resistors, target):
     # create a variable which is greater than than the absolute value of the error.
     # Because we will be minimizing, this will be forced down to equal the
     # absolute value. Common trick, google "linear programming absolute value".
-    abs_eror = m.add_var(lb=0)
-    m += abs_eror >= error
-    m += abs_eror >= -1 * error
+    abs_error = m.add_var(lb=0)
+    m += abs_error >= error
+    m += abs_error >= -1 * error
 
     # Objective of the optimisation is to minimise the absolute error.
     m.objective = mip.minimize(abs_eror)
