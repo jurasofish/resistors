@@ -3,7 +3,16 @@ from typing import List
 
 
 def equivalent_series(resistors: List[float], target: float) -> List[float]:
-    """Return list of resistors which in series are closest to target resistance."""
+    """Return list of resistors which in series are closest to target resistance.
+
+    Args:
+        resistors: float values of the resistors to choose from. A resistor
+            value can be used as many times as it occurs in this list.
+        target: The target resistance.
+
+    Returns:
+        Optimal resistor values.
+    """
 
     m = mip.Model()  # Create new mixed integer/linear model.
 
