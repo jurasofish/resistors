@@ -44,8 +44,7 @@ def equivalent_series(resistors: List[float], target: float) -> List[float]:
     solved_resistance = sum(x for x in r_to_use)
     solved_error = 100 * (solved_resistance - target) / target
     print(f'Resistors {r_to_use} in series will produce '
-          f'R={solved_resistance:.3f}. '
-          f'Aiming for R={target:.3f}, '
+          f'R={solved_resistance:.3f}. Aiming for R={target:.3f}, '
           f'error of {solved_error:.2f}%')
     return r_to_use
 
