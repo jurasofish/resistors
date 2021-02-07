@@ -29,7 +29,7 @@ def equivalent(resistors: List[float], target: float, series: bool, tol: float) 
     m += opt_r >= lower
     m += opt_r <= upper
 
-    # Objective of the optimisation is to minimise the absolute error.
+    # Objective of the optimisation is to minimise the number of resistors.
     m.objective = mip.minimize(mip.xsum(r_in_use))
     m.verbose = False  # Turn off verbose logging output.
     sol_status = m.optimize()
