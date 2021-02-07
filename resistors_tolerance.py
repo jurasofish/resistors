@@ -2,7 +2,7 @@ import mip
 from typing import List
 
 
-def equivalent(resistors: List[float], target: float, series: bool, tol: float) -> List[float]:
+def equivalent_tol(resistors: List[float], target: float, series: bool, tol: float) -> List[float]:
     """Return list of resistors which in series/parallel are within tolerance
      of the target resistance, minimising the number of resistors in use.
 
