@@ -60,3 +60,5 @@ sol = equivalent(list(range(1, 100)), 1056, True)
 sol = equivalent([1, 2, 3, 4, 5, 6, 7], 1.5555, False)
 sol = equivalent([1, 2, 3, 4, 5, 6, 7], 1.9, False)
 sol = equivalent(list(range(1, 100)), 123, False)
+
+sol = equivalent([x/100 for x in range(1, 10_000)], 5.26591, False)
