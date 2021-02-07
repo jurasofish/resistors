@@ -52,10 +52,10 @@ def equivalent_tol(resistors: List[float], target: float, series: bool, tol: flo
     return r_to_use
 
 
-sol = equivalent([1, 2, 3, 4, 5, 6, 7], 11, True, 0.1)
-sol = equivalent([1, 2, 3, 4, 5, 6, 7], 15.6, True, 0.1)
-sol = equivalent(list(range(1, 100)), 1056, True, 0.1)
+sol = equivalent_tol([1, 2, 3, 4, 5, 6, 7], 11, True, 0.1)
+sol = equivalent_tol([1, 2, 3, 4, 5, 6, 7], 15.6, True, 0.1)
+sol = equivalent_tol(list(range(1, 100)), 1056, True, 0.1)
 
-sol = equivalent([1, 2, 3, 4, 5, 6, 7], 1.5555, False, 0.1)
-sol = equivalent([1, 2, 3, 4, 5, 6, 7], 1.9, False, 0.1)
-sol = equivalent(list(range(1, 100)), 123, False, 0.1)
+sol = equivalent_tol([1, 2, 3, 4, 5, 6, 7], 1.5555, False, 0.1)
+sol = equivalent_tol([1, 2, 3, 4, 5, 6, 7], 1.9, False, 0.1)
+sol = equivalent_tol(list(range(1, 100)), 123, False, 0.1)
