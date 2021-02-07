@@ -2,7 +2,9 @@ import mip
 from typing import List
 
 
-def equivalent_tol(resistors: List[float], target: float, series: bool, tol: float) -> List[float]:
+def equivalent_tol(
+        resistors: List[float], target: float, series: bool, tol: float
+) -> List[float]:
     """Return list of resistors which in series/parallel are within tolerance
      of the target resistance, minimising the number of resistors in use.
 
@@ -25,7 +27,7 @@ def equivalent_tol(resistors: List[float], target: float, series: bool, tol: flo
 
     # Will take value of 1 when corresponding resistor is in use, otherwise 0.
     r_in_use = [m.add_var(var_type=mip.BINARY) for _ in _resistors]
-    opt_r = sum([b * r for b, r in zip(r_in_use, _resistors)])  # This will be the optimal resistance
+    opt_r = sum([b * r for b, r in zip(r_in_use, resistors)])  # Optimal resistance
     m += opt_r >= lower
     m += opt_r <= upper
 
@@ -44,10 +46,11 @@ def equivalent_tol(resistors: List[float], target: float, series: bool, tol: flo
     # that the optimiser decided to use.
     r_to_use = [r for r, i in zip(resistors, r_in_use_sol) if i > 0]
 
-    solved_resistance = sum(x for x in r_to_use) if series else 1/sum(1/x for x in r_to_use)
+    solved_resistance = sum(x for x in r_to_use) if series \
+        else 1/sum(1/x for x in r_to_use)
     solved_error = 100 * (solved_resistance - target) / target
-    print(f'Resistors {r_to_use} in {"series" if series else "parallel"} will produce '
-          f'R={solved_resistance:.3f}. Aiming for R={target:.3f}, '
+    print(f'Resistors {r_to_use} in {"series" if series else "parallel"} '
+          f'will produce R={solved_resistance:.3f}. Aiming for R={target:.3f}, '
           f'error of {solved_error:.2f}%')
     return r_to_use
 
