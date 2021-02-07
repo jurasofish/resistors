@@ -2,7 +2,7 @@ import mip
 from typing import List
 
 
-def equivalent(resistors: List[float], target: float, series: bool = False) -> List[float]:
+def equivalent(resistors: List[float], target: float, series: bool) -> List[float]:
     """Return list of resistors which in series/parallel are closest to target resistance.
 
     Args:
