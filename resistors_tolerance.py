@@ -27,7 +27,7 @@ def equivalent_tol(
 
     # Will take value of 1 when corresponding resistor is in use, otherwise 0.
     r_in_use = [m.add_var(var_type=mip.BINARY) for _ in _resistors]
-    opt_r = sum([b * r for b, r in zip(r_in_use, resistors)])  # Optimal resistance
+    opt_r = sum([b * r for b, r in zip(r_in_use, _resistors)])  # Optimal resistance
     m += opt_r >= lower
     m += opt_r <= upper
 
