@@ -14,7 +14,6 @@ def equivalent(resistors: List[float], target: float, series: bool) -> List[floa
     Returns:
         Optimal resistor values.
     """
-
     _target = target if series else 1/target
     _resistors = resistors if series else [1/x for x in resistors]
 
@@ -53,15 +52,10 @@ def equivalent(resistors: List[float], target: float, series: bool) -> List[floa
     return r_to_use
 
 
-def main():
-    sol = equivalent([1, 2, 3, 4, 5, 6, 7], 11, True)
-    sol = equivalent([1, 2, 3, 4, 5, 6, 7], 15.6, True)
-    sol = equivalent(list(range(1, 100)), 1056, True)
+sol = equivalent([1, 2, 3, 4, 5, 6, 7], 11, True)
+sol = equivalent([1, 2, 3, 4, 5, 6, 7], 15.6, True)
+sol = equivalent(list(range(1, 100)), 1056, True)
 
-    sol = equivalent([1, 2, 3, 4, 5, 6, 7], 1.5555, False)
-    sol = equivalent([1, 2, 3, 4, 5, 6, 7], 1.9, False)
-    sol = equivalent(list(range(1, 100)), 123, False)
-
-
-if __name__ == '__main__':
-    main()
+sol = equivalent([1, 2, 3, 4, 5, 6, 7], 1.5555, False)
+sol = equivalent([1, 2, 3, 4, 5, 6, 7], 1.9, False)
+sol = equivalent(list(range(1, 100)), 123, False)

@@ -13,7 +13,6 @@ def equivalent_series(resistors: List[float], target: float) -> List[float]:
     Returns:
         Optimal resistor values.
     """
-
     m = mip.Model()  # Create new mixed integer/linear model.
 
     # Will take value of 1 when corresponding resistor is in use, otherwise 0.
@@ -49,11 +48,6 @@ def equivalent_series(resistors: List[float], target: float) -> List[float]:
     return r_to_use
 
 
-def main():
-    sol = equivalent_series([1, 2, 3, 4, 5, 6, 7], 11)
-    sol = equivalent_series([1, 2, 3, 4, 5, 6, 7], 15.6)
-    sol = equivalent_series(list(range(1, 100)), 1056)
-
-
-if __name__ == '__main__':
-    main()
+sol = equivalent_series([1, 2, 3, 4, 5, 6, 7], 11)
+sol = equivalent_series([1, 2, 3, 4, 5, 6, 7], 15.6)
+sol = equivalent_series(list(range(1, 100)), 1056)
